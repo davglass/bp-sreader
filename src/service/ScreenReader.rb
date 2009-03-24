@@ -28,18 +28,19 @@ class ScreenReader
                 'Jfw.exe' => 'Jaws For Windows',
                 'wineyes.exe' => 'Window-eyes',
                 'nvda.exe' => 'NVDA',
-                'zt.exe' => 'Zoomtext',
-                'sh.exe' => 'Test Shell'
+                'zt.exe' => 'Zoomtext'
             }
             items.each { | key, value|
-                cmdLine = "tasklist /nh /fi \"IMAGENAME eq #{key}\""
+                cmdLine = "tasklist /nh /fo CSV /fi \"IMAGENAME eq #{key}\" 2>&1"
                 pipe = IO.popen(cmdLine)
                 cmd = pipe.readlines
                 pipe.close
                 
-                version = cmd
+                version = cmd[0]
+		        cleaned = cmd[0].slice(0,4).strip
+		        #puts "CMD2: #{key} '#{cleaned}'"
 
-                if cmd[0,4] != 'INFO'
+                if cleaned and cleaned != 'INFO'
                     reader = true
                     name = value
                 end
