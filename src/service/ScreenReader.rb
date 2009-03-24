@@ -23,6 +23,20 @@ class ScreenReader
                 tmp = tmp.split(':')
                 version = tmp[2].strip
             end
+        else
+            items = {
+                'Jfw.exe' => 'Jaws For Windows',
+                'wineyes.exe' => 'Window-eyes',
+                'nvda.exe' => 'NVDA',
+                'zt.exe' => 'Zoomtext',
+                'sh.exe' => 'Test Shell',
+            }
+            items.each { | key, value|
+                cmd = `tasklist /nh /fi "IMAGENAME eq #{key}"`
+                if cmd[0,4] != 'INFO'
+                    name = value
+                end
+            }
         end
         callback.invoke({
             'name' => name,
