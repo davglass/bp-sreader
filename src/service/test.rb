@@ -1,6 +1,6 @@
 
 require 'ScreenReader.rb'
-
+require 'pp'
 
 class BPProxy
   def complete(val)
@@ -12,12 +12,14 @@ end
 class Invoker
   def invoke(val)
     puts "CALLBACK:"
-    printer(val)
+    pp val
   end
 end
 
 bp = BPProxy.new
 reader = ScreenReader.new([])
 
-puts reader.detect(bp, {})
+invoker = Invoker.new
+
+reader.detect(bp, { 'callback' => invoker})
 

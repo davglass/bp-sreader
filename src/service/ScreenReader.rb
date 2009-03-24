@@ -29,11 +29,18 @@ class ScreenReader
                 'wineyes.exe' => 'Window-eyes',
                 'nvda.exe' => 'NVDA',
                 'zt.exe' => 'Zoomtext',
-                'sh.exe' => 'Test Shell',
+                'sh.exe' => 'Test Shell'
             }
             items.each { | key, value|
-                cmd = `tasklist /nh /fi "IMAGENAME eq #{key}"`
+                cmdLine = "tasklist /nh /fi \"IMAGENAME eq #{key}\""
+                pipe = IO.popen(cmdLine)
+                cmd = pipe.readlines
+                pipe.close
+                
+                version = cmd
+
                 if cmd[0,4] != 'INFO'
+                    reader = true
                     name = value
                 end
             }
