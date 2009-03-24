@@ -6,16 +6,19 @@ If it is active it will return the name and version of the active process.
 
 h3. Working
 
-Currently works on OSX
+Currently works on OSX picking up VoiceOver
 
-h3. TODO
-
-Filter for Windows Executibles
+It now filters for Windows Executibles:
 
 * Jfw.exe -- JAWS For Windows screen reader.
 * wineyes.exe -- Window-eyes screen reader.
 * nvda.exe -- NVDA scree nreader.
 * zt.exe -- Zoomtext screen magnifier.
+
+
+h3. TODO
+
+Still need to get the version info from the executibles on Windows.
 
 h3. INSTALL
 
