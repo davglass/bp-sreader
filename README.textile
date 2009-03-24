@@ -1,0 +1,22 @@
+h1. BrowserPlus ScreenReader Detection
+
+This service is designed to query the users system and determine if a screen reader is active.
+
+If it is active it will return the name and version of the active process.
+
+h3. Working
+
+Currently works on OSX
+
+h3. TODO
+
+Filter for Windows Executibles
+
+* Jfw.exe -- JAWS For Windows screen reader.
+* wineyes.exe -- Window-eyes screen reader.
+* nvda.exe -- NVDA scree nreader.
+* zt.exe -- Zoomtext screen magnifier.
+
+h3. INSTALL
+
+Check the README under src/service

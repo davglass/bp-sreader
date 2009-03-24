@@ -1,0 +1,12 @@
+First you need to install BrowserPlus:
+
+http://browserplus.yahoo.com/install
+
+Then you need to download the SDK:
+http://browserplus.yahoo.com/developer/service/sdk/
+
+Then from this directory issue this command:
+
+bpsdk/bin/ServiceInstaller -v -f .
+
+Where bpsdk is the location of the SDK download.
