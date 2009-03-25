@@ -36,7 +36,8 @@ class ScreenReader
                 cmd = pipe.readlines
                 pipe.close
                 
-                version = cmd[0]
+                #TODO Need to get the version number here..
+                version = nil
 		        cleaned = cmd[0].slice(0,4).strip
 		        #puts "CMD2: #{key} '#{cleaned}'"
 
